@@ -1,19 +1,29 @@
 class InitWorld < ActiveRecord::Migration[5.0]
   def change
-    create_table :users do |t|
-      t.string :username
+    create_table :teachers do |t|
+      t.string :name
       t.string :email
-
+      t.string :password
       t.timestamps null: false
     end
 
-    create_table :posts do |t|
-      t.string      :name
-      t.string      :url
-      t.integer     :votes, default: 0
+    create_table :classrooms do |t|
+      t.string :name
+      t.timestamps null: false
+    end
 
-      t.references  :user, index: true, foreign_key: true
+    create_table :assignments do |t|
+      t.string :title
+      t.string :description
+      t.references :teacher, foreign_key: true
+      t.references :classroom, foreign_key: true
+      t.due_date :date
+      t.timestamps null: false
+    end
 
+    create_table :classteachers do |t|
+      t.references :teacher, foreign_key: true
+      t.references :classroom, foreign_key: true
       t.timestamps null: false
     end
   end
