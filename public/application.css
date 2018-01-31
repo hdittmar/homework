@@ -1,0 +1,26 @@
+#yes_link{
+  background-color: green;
+  color: white;
+}
+
+#no_link{
+  color: white;
+  background-color: red
+
+}
+
+.btn > a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn-danger {
+  background-color: #FF8000;
+}
+
+.btn {
+  display: inline-block;
+}
